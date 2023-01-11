@@ -14,30 +14,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_11_023828) do
   create_table "m1_m2s", force: :cascade do |t|
     t.integer "m1_id"
     t.integer "m2_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["m1_id"], name: "index_m1_m2s_on_m1_id"
-    t.index ["m2_id"], name: "index_m1_m2s_on_m2_id"
   end
 
   create_table "m1s", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "m2s", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "m3s", force: :cascade do |t|
     t.integer "m1_m2_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["m1_m2_id"], name: "index_m3s_on_m1_m2_id"
   end
 
-  add_foreign_key "m1_m2s", "m1s"
-  add_foreign_key "m1_m2s", "m2s"
-  add_foreign_key "m3s", "m1_m2s"
 end
